@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Text Summarizer - College Mini Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <header class="header">
+      <div class="badge">Mini Project Demo</div>
+      <h1>AI Text <span>Summarizer</span></h1>
+      <p>Instantly extract key sentences and condense long paragraphs with local smart processing.</p>
+    </header>
+
+    <main class="grid-container">
+      <!-- Input Card -->
+      <section class="card input-card">
+        <div class="card-header">
+          <h2>Source Text</h2>
+          <span class="word-badge" id="inputStats">0 words | 0 chars</span>
+        </div>
+        
+        <div class="textarea-wrapper">
+          <textarea id="inputText" placeholder="Paste or type your paragraph here..."></textarea>
+        </div>
+
+        <div class="controls-group">
+          <div class="length-selector">
+            <label>Summary Length:</label>
+            <div class="radio-options">
+              <label class="radio-label">
+                <input type="radio" name="summaryLength" value="short" />
+                <span>Short (20%)</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="summaryLength" value="medium" checked />
+                <span>Medium (40%)</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="summaryLength" value="long" />
+                <span>Long (60%)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button id="summarizeBtn" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Summarize Text
+            </button>
+            <button id="clearInputBtn" class="btn btn-secondary">Clear</button>
+          </div>
+        </div>
+
+        <div id="alertBox" class="alert-box hidden"></div>
+      </section>
+
+      <!-- Output Card -->
+      <section class="card output-card">
+        <div class="card-header">
+          <h2>Summary Result</h2>
+          <span class="word-badge highlight" id="outputStats">0 words</span>
+        </div>
+
+        <div class="output-wrapper">
+          <div id="outputContainer" class="output-content empty-state">
+            <p>Your generated summary will appear here...</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-banner">
+          ⚠️ <strong>Demo Mode Notice:</strong> Uses a local extractive sentence-scoring algorithm for offline demonstration, not a generative LLM neural network.
+        </div>
+
+        <div class="card-actions">
+          <button id="copyBtn" class="btn btn-action" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy
+          </button>
+          <button id="downloadBtn" class="btn btn-action" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>College Mini Project &bull; Web Technologies</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
